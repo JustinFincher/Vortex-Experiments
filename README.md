@@ -41,6 +41,7 @@ Vortex deploys my own solution for Unity-Android live wallpaper, called UniLWP, 
 
 - Fill out [sentry.properties](Builds/Android/Vortex/sentry.properties)
 - Fill out [google-services.json](Builds/Android/Vortex/launcher/google-services.json), the Google project needs to be Awareness API enabled.
+- Fill out the com.google.android.awareness.API_KEY in [AndroidManifest.xml](Builds/Android/Vortex/launcher/src/main/AndroidManifest.xml)
 - Open repo in Unity (>= 2019.3.0f1), then trigger a build by menu path: `FinGameWorks->Editor->Build`
 - Open the Android project at [Builds/Android/Vortex/](Builds/Android/Vortex/)
 - Build
