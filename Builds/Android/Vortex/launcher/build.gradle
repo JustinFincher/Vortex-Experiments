@@ -1,0 +1,128 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
+apply plugin: 'io.sentry.android.gradle'
+apply plugin: 'com.google.firebase.firebase-perf'
+
+dependencies {
+    api project(':unityLibrary')
+    implementation 'com.google.firebase:firebase-core:17.2.2'
+    implementation 'com.google.firebase:firebase-perf:19.0.5'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    implementation 'com.google.android.gms:play-services-awareness:17.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
+    implementation 'com.github.mcginty:material-colors:1.1.0'
+    implementation 'gun0912.ted:tedpermission-rx2:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.17'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.luckycatlabs:SunriseSunsetCalculator:1.2'
+    implementation 'io.sentry:sentry-android:1.7.29'
+    implementation 'org.slf4j:slf4j-nop:1.7.30'
+    def work_version = "1.0.1"
+    implementation "android.arch.work:work-runtime:$work_version" // use -ktx for Kotlin+Coroutines
+    implementation "android.arch.work:work-rxjava2:$work_version"
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.2'
+
+    implementation 'joda-time:joda-time:2.10.5'
+
+    implementation 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
+    }
+
+android {
+    def versionPropsFile = file('version.properties')
+    def addition = 0
+    def runTasks = gradle.startParameter.taskNames
+    if (':packageReleaseBundle' in runTasks) {
+        addition = 1
+    }
+
+    def targetVersionName = ''
+    def targetVersionCode = ''
+    Properties versionProps = new Properties()
+    if (versionPropsFile.canRead())
+    {
+        versionProps.load(new FileInputStream(versionPropsFile))
+        versionProps['VERSION_PATCH'] = (versionProps['VERSION_PATCH'].toInteger() + addition).toString()
+        versionProps['VERSION_MINOR'] = (versionProps['VERSION_MINOR'].toInteger()).toString()
+        versionProps['VERSION_NUMBER'] = (versionProps['VERSION_NUMBER'].toInteger()).toString()
+        versionProps['VERSION_BUILD'] = (versionProps['VERSION_BUILD'].toInteger() + 1).toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+        // 1: change major and minor version here
+        targetVersionCode = versionProps['VERSION_BUILD'].toInteger()
+        targetVersionName = "${versionProps['VERSION_MAJOR']}.${versionProps['VERSION_MINOR']}.${versionProps['VERSION_NUMBER']}.${versionProps['VERSION_PATCH']} (${versionProps['VERSION_BUILD']})"
+    }else
+    {
+        throw new FileNotFoundException("Could not read version.properties!")
+    }
+
+
+
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 29
+        applicationId 'com.justzht.vortex'
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+        versionCode targetVersionCode
+        versionName targetVersionName
+    }
+
+    aaptOptions {
+        noCompress = ['.unity3d', '.ress', '.resource', '.obb']
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.debug
+            jniDebuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    packagingOptions {
+        doNotStrip '*/armeabi-v7a/*.so'
+        doNotStrip '*/arm64-v8a/*.so'
+    }
+    dataBinding {
+        enabled = true
+    }
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+    sentry {
+        autoProguardConfig true
+        autoUpload true
+    }
+}

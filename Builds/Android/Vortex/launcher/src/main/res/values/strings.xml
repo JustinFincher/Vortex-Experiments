@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="game_view_content_description" translatable="false">Vortex</string>
+  <string name="app_name">Vortex</string>
+  <string name="product_name">Vortex</string>
+    <string name="app_info_author_text">By Zheng Haotian (aka Justin Fincher) From FinGameWorks</string>
+  <string name="app_info_desc_text">A &lt;Second Renaissance&gt; project</string>
+  <string name="how_to_use_app_text">The behavior of flowing particles is data-driven. Simply set as wallpaper and this app will pull weather and location info from Google Awareness API. Normally Vortex refreshes these data every 30 minutes if there is a good network connectivity. You can long press each item of the Awareness data to see how it affects the whole living particle system.</string>
+
+
+  <string name="shortcut_refresh_short_text">Refresh</string>
+  <string name="shortcut_refresh_long_text">Refresh Data</string>
+  <string name="shortcut_refresh_disable_text">Refresh function is currently unavailable</string>
+  <string name="tooltip_coordinate_text">Coordinate data is used to determine the weather and the sunrise / sunset time</string>
+  <string name="tooltip_temperature_text">If temperature goes up, particles moves faster</string>
+  <string name="tooltip_humidity_text">Humidity decides the base size of a swirl</string>
+  <string name="tooltip_time_text">Sunrise / Sunset time, along with last refreshed time, change the color of particle lines</string>
+
+  <string name="tooltip_activity_text">Activity (still / walking / running) have a minor impact on the particle speed.</string>
+
+  <string name="tooltip_weather_text">Weather (cloudy / raining) have a minor impact on the particle speed and the default size of noises.</string>
+  <string name="text_refresh_data">Refresh Data</string>
+  <string name="text_weather">Weather</string>
+  <string name="text_sunrise_sunset_time">Sunrise / Sunset Time</string>
+  <string name="text_humidity">Humidity</string>
+  <string name="text_temperature">Temperature</string>
+  <string name="text_coordinate">Coordinate</string>
+  <string name="text_google_awareness_data">Google Awareness Data</string>
+  <string name="text_resolve_gms_availability">Resolve GMS Availability</string>
+  <string name="text_gms_resolve_text">Please install GMS manually or contact your OEM manufacturer for resolution</string>
+  <string name="text_gms_need">Google Play Service is needed but currently not available on this device</string>
+  <string name="text_enable_permissions">Enable Permissions</string>
+  <string name="text_you_don_t_have_permissions_enabled">You don\'t have permissions enabled.</string>
+  <string name="text_permission_needed_exp">Location and physical activity permissions are needed for Google Awareness API.</string>
+  <string name="text_live_wallpaper">Live Wallpaper</string>
+  <string name="text_about">About</string>
+  <string name="tooltip_timelapse_text">Enable this would let particles move fast</string>
+
+  <string name="app_wallpaper_description">Calculated from current weather, temperature, time, and human motion data, the force field in Vortex drives whirling trails in a spectacular fashion.</string>
+  <string name="app_author">FinGameWorks</string>
+  <string name="app_wallpaper_context_uri">https://portfolio.justzht.com/vortexlwp/</string>
+  <string name="app_wallpaper_context_description">Website</string>
+    <string name="description_press_fab_button">Press the red round floating button to set Vortex as system wallpaper</string>
+  <string name="description_vortex_not_wallpaper">Vortex is not set as system wallpaper</string>
+  <string name="description_how_to_use">How to use?</string>
+  <string name="description_exit">How to stop?</string>
+  <string name="description_shut_down_vortex">If you want to set another live wallpaper other than Vortex, please first exit this one, or Vortex will continue to pull data from Google Awareness API in the background, which is fine actually but you can complete shut down Vortex if you want.</string>
+  <string name="button_exit">Exit App</string>
+</resources>

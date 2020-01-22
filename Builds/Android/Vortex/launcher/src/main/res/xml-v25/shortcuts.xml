@@ -1,0 +1,14 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="refresh"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_refresh"
+        android:shortcutShortLabel="@string/shortcut_refresh_short_text"
+        android:shortcutLongLabel="@string/shortcut_refresh_long_text"
+        android:shortcutDisabledMessage="@string/shortcut_refresh_disable_text">
+        <intent
+            android:action="Vortex.Action.RefreshAwareness"
+            android:targetPackage="com.justzht.vortex"
+            android:targetClass="com.justzht.vortex.activity.IntentHandlerActivity" />
+    </shortcut>
+</shortcuts>

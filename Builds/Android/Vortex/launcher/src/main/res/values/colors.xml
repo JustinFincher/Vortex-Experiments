@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textColorPrimary">@color/material_black</color>
+    <color name="colorAccent">@color/material_pink300</color>
+    <color name="colorPrimaryLight">@color/material_lightblue50</color>
+    <color name="colorPrimaryExtraLight">@color/material_lightblue300</color>
+    <color name="colorPrimary">@color/material_lightblue700</color>
+    <color name="colorPrimaryDark">@color/material_lightblue900</color>
+    <color name="colorSecondary">@color/material_pink300</color>
+    <color name="colorSecondaryExtraLight">@color/material_pink50</color>
+    <color name="transparent">#00000000</color>
+</resources>
