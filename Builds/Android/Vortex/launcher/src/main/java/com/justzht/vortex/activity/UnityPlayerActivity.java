@@ -173,7 +173,10 @@ public class UnityPlayerActivity extends LiveWallpaperPresentationActivity
                 .setMessage("Vortex and its background service would exit completely until you re-open the app.")
                 .setPositiveButton("Ok", (dialogInterface, i) -> {
                     finishAffinity();
-                    LiveWallpaperManager.getInstance().removePreviousWallpaper();
+                    if (LiveWallpaperManager.getInstance().isWallpaperSet())
+                    {
+                        LiveWallpaperManager.getInstance().removePreviousWallpaper();
+                    }
                     System.exit(0);
                 })
                 .setNegativeButton("Cancel", null)
