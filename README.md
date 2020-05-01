@@ -35,7 +35,7 @@ Vortex consists of two parts: Unity as the graphical frontends, and Android as t
 
 Unity (>=2019.3) would export the updated Android Gradle project to the `Builds/Android/Temp` directory, and a [post-processing script](Assets/FinGameWorks/Scripts/Editor/LWPPostBuildUtilities.cs) would copy the newly generated unityLibrary directory to the same place in `Builds/Android/Vortex`, essentially replacing the old one. The unityLibrary directory contains the often-updated Unity part, while the launcher directory contains the persistent, native Android part, including java files and xmls.
 
-Vortex deploys my own solution for Unity-Android live wallpaper, called UniLWP, which is both [free for the basic version](https://github.com/JustinFincher/UniLWP-NoDeps) and commercially on sale (Asset Store WIP) for a complete feature set.
+Vortex deploys my own solution for Unity-Android live wallpaper, called UniLWP, which is both [free for the basic version](https://github.com/JustinFincher/UniLWP.Droid.Package.Free) and commercially on sale ([Asset Store](http://u3d.as/1QVw)) for a complete feature set.
 
 ## Build Instructions
 
